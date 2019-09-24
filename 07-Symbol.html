@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    // 一、 Symbol 是ES6新增的一种数据类型
+    // 代表独一无二
+    let s1 = Symbol();
+    console.log(typeof s1);  //"symbol"
+    console.log(s1); // Symbol()
+
+    let s2 = Symbol();
+    console.log(s2); // Symbol()
+    console.log(s1 === s2);  // false
+
+
+    // 二、为了能够标识出两个Symbol是不一样的
+    let s3 = Symbol("a");
+    console.log(typeof s3) //"symbol"
+    console.log(s3) // Symbol(a)
+
+    let s4 = Symbol("a");
+    console.log(s4) // Symbol(a)
+    console.log(s3 === s4);
+
+
+    // 三、不能通过new去调用
+    // let s5 = new Symbol();
+
+
+
+    // 四、解决键名覆盖问题
+    let obj = {
+      a: 1
+    }
+    obj.b = 2;
+    obj.a = 3; // 这哥们以为之前obj是没有a的
+    console.log(obj); // {a:3, b:2} 就覆盖了之前的a
+
+    // 用Symbol数据类型来解决这个问题（键名的重复）
+    let a = Symbol("a");
+    obj[ a ] = "sa";
+    console.log( obj );  // {a: 1, Symbol(a): "sa"}
+    // undefined 千万不要这样写 这样写都会创造一个独一无二的的Symbol
+    // 与Map一样，obj[{}]，每次都会创造一个独一无二的的{}
+    console.log(obj[Symbol("a")]);
+    console.log(obj[a]);
+
+    let b = Symbol("b");
+    obj[ b ] = "sb";
+    console.log( obj[b] ) // {a: 1, Symbol(a): "sa", Symbol(b): "sb"}
+
+
+    // 五、以Symbol为键名的值不可遍历
+    for( let attr in obj ){
+      console.log( obj[attr] ) // 3 2
+    }
+
+
+    // 六、得到以Symbol为键名的键
+    console.log( Object.getOwnPropertySymbols( obj ) ) // [Symbol(a), Symbol(b)]
+
+
+    // 七、Symbol数据类型不能进行运算（+ - * /），但可以转换成布尔值
+    // let symbol1 = Symbol("a");
+    // let symbol1 = Symbol("0");
+    let symbol1 = Symbol();
+    // console.log( symbol1 + 1 );
+    // console.log( symbol1 + "a" );
+    console.log(!!symbol1);
+    console.log(Boolean(symbol1));
+  </script>
+</head>
+<body>
+
+</body>
+</html>

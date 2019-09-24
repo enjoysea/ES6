@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+
+    // 一、对象的剩余参数（无序）
+    let obj = {
+      name: 'Jack',
+      age: 36,
+      career: 'engineer',
+      gender: 'male',
+      interest: 'writing'
+    };
+    let {career, interest, ...objR} = obj;
+    console.log(career, interest, objR);
+
+
+    // 二、数组的剩余参数（有序）
+    let arr = [1,2,3,4,5];
+    let [a,b,...arrR] = arr;
+    console.log(a,b,arrR);
+
+
+    // 三、解构赋值先定义变量，后使用
+    let name = '';
+    ({name} = obj);
+    console.log( name );
+
+
+    // 四、修改名字
+    let {interest: love} = obj;
+    console.log(love);
+
+
+    // 五、既修改名字又有默认值
+    let {graduate: g = '牛津大学'} = obj;
+    console.log(g);
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

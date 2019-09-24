@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+
+    // 一、声明
+    let s = new Set(["a", "b", "c"]);
+    console.log(s);
+    console.log(s.size);
+
+
+    // 二、添加
+    // Set方法只会保存唯一的值
+    s.add(1).add(2).add(1);
+    console.log(s);
+
+    // 只会添加一个NaN进去
+    s.add(NaN).add(NaN);
+    console.log(s);
+
+
+    // 三、删除
+    // 返回值res 代表此次删除是否成功
+    let res = s.delete("b");
+    console.log(s);
+    console.log(res);
+
+    let resZ = s.delete("z");
+    console.log(s);
+    console.log(resZ); // false
+
+
+    // 四、判断某个值在数据结构中是否存在
+    console.log(s.has("a"));
+    console.log(s.has("x"));
+
+
+    // 五、clear 清空set结构
+    s.clear();
+    console.log(s);
+
+
+    // 六、遍历Set结构
+    let s1 = new Set(["a", "b", "c"]);
+    // item - 当前项
+    // index - 当前项索引
+    // item 与 index 相同
+    // set - 完整的set数据结构
+    s1.forEach(function(item, index, set){
+      console.log(item, index, set);
+    })
+
+
+    // 七、返回keys遍历接口
+    let keys = s1.keys();
+    console.log(keys);
+    // done 表示此次遍历还没结束
+    console.log(keys.next()); // {value: "a", done: false}
+    console.log(keys.next()); // {value: "b", done: false}
+    console.log(keys.next()); // {value: "c", done: false}
+    console.log(keys.next()); // {value: undefined, done: true}
+
+    // 结果与上面相同，在Set数据结构中，值与索引相同
+    let values = s1.values();
+    console.log(values.next()); // {value: "a", done: false}
+    console.log(values.next()); // {value: "b", done: false}
+    console.log(values.next()); // {value: "c", done: false}
+    console.log(values.next()); // {value: undefined, done: true}
+
+    // 返回entries遍历接口
+    let entries = s1.entries();
+    console.log(entries.next()); // {value: Array(2), done: false}
+    console.log(entries.next()); // {value: Array(2), done: false}
+    console.log(entries.next()); // {value: Array(2), done: false}
+    console.log(entries.next()); // {value: undefined, done: true}
+
+
+    // 八、数组去重
+    let arr = [1,2,3,2,3,5,4,"1",NaN,NaN];
+    let s2 = new Set(arr);
+    console.log(s2);
+    console.log([...s2]);
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

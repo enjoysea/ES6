@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+
+    // 一、Iterator 是ES6的遍历接口
+    let arr = [10, 20, 30];
+    // 数组天生就有这种遍历接口
+    // 检测一种数据结构是否有iterator接口
+    console.log(arr[Symbol.iterator]);
+    let k = arr.keys();
+    console.log(k);
+    console.log(k.next());
+    console.log(k.next());
+    console.log(k.next());
+    console.log(k.next());
+
+
+    // 二、自己实现iterator接口
+    let myArr = [10, 20, 30];
+    let m = i(myArr);
+    console.log(m.next());
+    console.log(m.next());
+    console.log(m.next());
+    console.log(m.next());
+
+    // 自己封装的iterator接口
+    function i(obj) {
+      let index = -1;
+      return {
+        next: function(){
+          index ++;
+          return index < obj.length
+            ? {
+              value: index, //obj[index]
+              done: false
+            }
+            : {
+              value: undefined,
+              done: true
+            }
+        }
+      }
+    }
+
+
+    // 三、ES6为什么要提出遍历接口？
+    // 为了能让我们对任何一种数据，只要有遍历接口，就能提供一种非常类似的遍历方法来遍历数据而已
+
+
+    // 四、只要具有iterator接口，就可以通过for(var attr of arr){}遍历每一项
+
+    /*
+      通过
+      for(var attr in obj){
+      }
+      既可以遍历对象（属性），又可以遍历数组（遍历的是下标）
+    */
+
+    //（1）数组
+    let arr1 = [10, 20, 30];
+    for (var attr of arr1) {
+      console.log(attr);
+    }
+
+    //（1）类数组
+    let els = document.getElementsByTagName("*");
+    for (var attr of els) {
+      console.log(attr);
+    }
+
+    //（2）Set
+    let set = new Set(["a", "b", "c"]);
+    for (var attr of set) {
+      console.log(attr);
+    }
+
+    //（3）Map
+    let map = new Map([ ["name", "miaov"], ["aaa", 200] ]);
+    for (var attr of map) {
+      console.log(attr);
+    }
+
+
+    // 五、具有iterator接口主要分为三大类
+
+       /*
+        （1）数组（类数组）
+        （2）Set
+        （3）Map
+       */
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

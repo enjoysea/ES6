@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+
+    // 一、回顾Map
+    let m = new Map();
+    let zm = {
+      name: "zmouse",
+      age: 30
+    };
+    let reci = {
+      name: "reci",
+      age: 20
+    };
+    // m.set(zm, "miaov");
+    // m.set(reci, "miaov2");
+    // zm = null;
+    // 在Map数据结构中是强引用，即使设置为null，依然可以引用到
+    // console.log(m);
+    // 控制台直接输入：m
+    // 控制台直接输入：zm = null
+    // 控制台直接输入：m
+    // 刷新
+    // Performance，有个小垃圾桶（手动回收垃圾）
+
+    // 控制台直接输入：m
+    // 控制台直接输入：zm = null
+    // Performance，点击小垃圾桶（手动回收垃圾）
+    // 控制台直接输入：m
+
+
+
+    // 二、ES6中有另外一种数据结构，也Map非常像
+    // 在WeakMap数据结构中是弱引用，即使设置为null，就不能引用到
+    let wm = new WeakMap();
+    wm.set(zm, "miaov");
+    wm.set(reci, "miaov2");
+    // 控制台直接输入：wm
+    // 控制台直接输入：zm = null
+    // Performance，点击小垃圾桶（手动回收垃圾）
+    // 控制台直接输入：wm，只有一项：WeakMap {{…} => "miaov2"}
+
+    // WeakMap不能以非对象作为键名
+    // wm.set(1, "miaov");
+
+    // WeakMap不可遍历
+    for(var v of wm){
+      console.log(v)
+    }
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

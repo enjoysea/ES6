@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+
+    // 一、会调用内部的toString，将键名转为字符串
+    let obj = {
+      name: "miaov"
+    };
+    let momo = {
+      name: "m"
+    };
+    console.log(momo.toString()); // [object Object]
+    obj[momo] = 1;
+    console.log(obj);
+
+
+    // 二、Map数据结构的键名可以是任何的数据结构
+    let m = new Map([ ["name", "miaov"] ]);
+    console.log(m); // Map(1) {"name" => "miaov"}
+    console.log(m.size);
+    console.log(m.get("name")); // 获取键值对
+    m.set("age", 100); // 设置键值对
+    console.log(m); // Map(2) {"name" => "miaov", "age" => 100}
+    let yoyo = {name: "y"}
+    m.set(yoyo, 1);
+    console.log(m);
+
+
+    // 三、删除
+    let res = m.delete(yoyo); // 删除成功返回true
+    console.log(m, res);
+    let resZ = m.delete("z"); // 删除成功返回false
+    console.log(m, resZ);
+    console.log(m.has(yoyo));
+    console.log(m.has("z"));
+
+
+    // 四、清除数据结构
+    m.clear();
+    console.log(m, res);
+
+
+    // 五、遍历
+    let m1 = new Map([ ["name", "miaov"], ["aaa", 200] ]);
+    let yoyo1 = {name: "y"}
+    m1.set(yoyo1, 1);
+    // item - 值
+    // key - key
+    m1.forEach(function(item, key, map){
+      console.log(item, key, map);
+    });
+
+
+    // 返回keys遍历接口
+    let res1 = m1.keys();
+    console.log(res1.next()); // {value: "name", done: false}
+    console.log(res1.next()); // {value: "aaa", done: false}
+    console.log(res1.next()); // {value: {...}, done: false}
+    console.log(res1.next()); // {value: undefined, done: true}
+
+    // 返回values遍历接口
+    let m2 = new Map([ ["name", "miaov"], ["aaa", 200] ]);
+    let yoyo2 = {name: "y"}
+    m2.set(yoyo2, 1);
+    let res2 = m2.values();
+    console.log(res2.next());
+    console.log(res2.next());
+    console.log(res2.next());
+    console.log(res2.next());
+
+    // 返回entries遍历接口
+    let m3 = new Map([ ["name", "miaov"], ["aaa", 200] ]);
+    let yoyo3 = {name: "y"}
+    m3.set(yoyo3,1);
+    let res3 = m3.entries();
+    console.log(res3, 'res3'); // MapIterator
+    console.log(res3.next());
+    console.log(res3.next());
+    console.log(res3.next());
+    console.log(res3.next());
+
+
+    // 六、每一次都是新建了一个新的{}，两个{}地址是不同的
+    let m4 = new Map([ ["name", "miaov"], ["aaa", 200] ]);
+    m4.set( {},2);
+    m4.set( {},3);
+    console.log(m4); // {"name" => "miaov", "aaa" => 200, {…} => 2, {…} => 3}
+
+    // 键名相同，后面覆盖前面
+    let o = {};
+    m4.set(o,4);
+    m4.set(o,5);
+    console.log(m4);
+    console.log(m4.get(o), 'm4');
+
+    // 两个{}，都是新的对象
+    let m5 = new Map([ [{}, 2] ]);
+    console.log(m5.get({})); // undefined
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>
