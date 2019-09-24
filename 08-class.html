@@ -11,17 +11,14 @@
         this.name = name;
         this.age = age;
       }
-
       // 添加静态方法
       static isHuman(obj) {
         // console.log( "isHuman" )
         return obj instanceof Person
       }
-
       say() {
         console.log("我叫" + this.name + "今年," + this.age);
       }
-
       eat() {
         console.log("eat....");
       }
@@ -29,6 +26,7 @@
 
     // 添加静态属性
     Person.staticProps = "miaov";
+
     // 调用静态属性
     console.log(Person.staticProps);
 
@@ -44,17 +42,19 @@
         super(name, age);
         this.money = money;
       }
-
       // 之类覆盖父类的方法
       say() {
         console.log("我叫" + this.name + "今年," + this.age + ",一月赚" + this.money);
       }
     }
+
     var c1 = new Coder("zm", 30, 30000);
     console.log(c1);
     c1.say();
+
     // 使用父类的静态方法
     console.log(Coder.isHuman(c1));
+
     // 使用父类的静态属性
     console.log(Coder.staticProps, '使用父类的静态属性');
 
