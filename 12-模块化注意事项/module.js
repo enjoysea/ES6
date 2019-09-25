@@ -34,7 +34,7 @@ console.log('a-2，加载');
 // 导出的值是对原值的一系列引用
 import {c, addOne} from './b.js';
 
-// 换言之，就是修改b.js中的c的值
+// 换言之，就是修改b.js中c的值
 addOne();
 
 console.log(c);
@@ -42,8 +42,3 @@ console.log(c);
 // c只读
 // c = 200;
 // console.log(c);
-
-
-
-
-
