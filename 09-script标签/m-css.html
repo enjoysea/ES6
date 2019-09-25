@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <!--如果有一天将其注释掉，就直接将body与div的样式给去掉了，也是模块化开发的一种小小的体验-->
+  <link rel="stylesheet" href="index.css">
+  <!--<link rel="stylesheet" href="body.css">-->
+  <!--引入工具函数-->
+  <!--<script src="move.js"></script>-->
+
+  <!--引入让div运动起来的具体业务代码-->
+  <!--<script src="divmove.js"></script>-->
+</head>
+<body>
+  <!--假设想让div运动起来-->
+  <!--
+    假设有一天
+    老板不想让div运动
+    你会很直观的将 <script src="divmove.js"></script> 这个引用给干掉
+    <script src="move.js"></script> 这个引用也会给注释掉，才完整
+
+    真正的项目可能是很多js的引用
+    如果不需要div运动，需要找到引用的具体业务代码的js 和 其依赖的js，将其都注释掉
+    就变得难以维护了
+
+    模块化就是为了解决这个问题
+
+  -->
+  <div></div>
+</body>
+</html>

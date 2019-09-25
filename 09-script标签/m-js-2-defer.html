@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!-- defer：在外链js上使用，会在其他的js、dom节点加载完成之后 再加载 -->
+  <!-- 亦会等待图片加载完再去加载 -->
+  <!--多个defer，会按顺序依次加载-->
+  <script src="1-2.js" defer></script>
+  <script src="1-3.js" defer></script>
+  <script src="1-1.js"></script>
+
+  <!-- <img src="" alt=""> -->
+</body>
+</html>
