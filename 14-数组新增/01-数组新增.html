@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // 一、ES5 创建数组
+   var arr = new Array(10,20,30);
+   console.log(arr);
+   var arr = new Array(10) // 1项只是长度为10的空数组
+   console.log(arr)
+
+  // ES6创建数组
+   var arr = Array.of(10,20,30)
+   var arr = Array.of(10) // 解决只有1项的问题
+   console.log(arr) // [10]
+
+  // 二、判断是否是数组
+   console.log( Array.isArray( arr ) )  // 判断是否是数组
+   console.log( Array.isArray( 1 ) )  // 判断是否是数组
+   console.log( Array.isArray( [] ) )  // 判断是否是数组
+   console.log( Array.isArray( {} ) )  // 判断是否是数组
+
+  // 类数组
+   var els = document.all
+   console.log(els)
+   console.log( Array.isArray( els ) )  // false
+
+  // 类数组
+   var els = document.getElementsByTagName("*")
+   console.log( els )
+   console.log( Array.isArray( els ) )  // false
+
+  // 将 类数组 转换成 真正的数组
+   var arrEls = Array.from( els );
+   console.log( Array.isArray( els ) )  // false
+   console.log( Array.isArray( arrEls ) ) // true
+
+
+    var arr = [10, 20, 60, 30, 40, 50];
+    // 三、找到数组中首个符合规则的元素
+    var res = arr.find( function( item ){
+      console.log(item)
+      return item > 50
+    } );
+    console.log( res ) // 60
+
+
+    // 四、找到数组中首个符合规则的元素下标
+    var res = arr.findIndex(function (item) {
+      console.log(item)
+      return item > 50
+    })
+    console.log(res)
+
+
+</script>
+</body>
+</html>

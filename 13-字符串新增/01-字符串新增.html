@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+   var str = "miaovketang";
+  // ES5
+  // 一、返回在字符串中首次出现的位置
+   console.log( str.indexOf("ke") );
+   console.log( str.indexOf("zzz") );
+   console.log( str.indexOf("ke") !== -1 );
+   console.log( str.indexOf("zzz") !== -1 );
+
+  // ES6 代码更加语义化
+   console.log( str.includes("zzz") ); // false
+   console.log( str.includes("ke") ); // true
+
+
+  // 二、ES6 是否以"某某字"符串开头
+   console.log( str.startsWith("miao") );
+   console.log( str.startsWith("iao") );
+
+
+  // 三、ES6 是否以某某字符串结尾
+   console.log( str.endsWith("tang") );
+   console.log( str.endsWith("tan") );
+
+   var str = "miaovketang |";
+  // 四、ES6 重复字符串
+   console.log( str.repeat(3) ); // 返回值 "miaovketang |miaovketang |miaovketang |"
+   console.log( str ); // "miaovketang |" 对本身字符串是没有任何改变的
+
+
+   // 五、模板字符串
+   // 反引号里面可以写""，或''
+   var classStr = "yellow"
+   var html = `
+   <ul>
+   	<li class="red"></li>
+   	<li class='green'></li>
+   	<li class='${classStr}'></li>
+   </ul>`
+   console.log( html )
+
+   var n = 2;
+   var m = 3;
+   console.log( "n+m="+(n+m) );  // ES5
+   console.log( `n+m=${n+m}` );  // ES6
+
+   var isRaining = false;
+   //${} 里面可以写  三目表达式 或 函数调用
+   console.log( `今天天气是 ${ isRaining ? "雨天" : "晴天" }` )
+
+  function fn() {
+    return "miaov"
+  }
+  //${} 里面可以写  三目表达式 或 函数调用
+  console.log(`fn执行结果是 : ${ fn() }`);
+  </script>
+</head>
+<body>
+
+</body>
+</html>
