@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--必须在服务器环境下打开文件-->
+  <!--
+    VsCode里面可以安装一个插件：Live Server
+    安装好后重新启动VsCode
+  -->
+  <!--默认会有一个defer，默认会延迟加载-->
+  <script src="./a-1.js" type="module" defer></script>
+  <!--下面（外部）模块用不了上面（私有）模块的变量-->
+  <script src="./a-2.js" defer></script>
+
+  <!--// 不能再模块的外部进行使用
+  <script>
+    console.log(a);
+  </script>-->
+
+  <!--// 打印次序也会反向
+  <script>
+    console.log(123);
+  </script>-->
+
+
+</body>
+</html>
