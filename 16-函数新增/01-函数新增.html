@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+
+  // 一、没有默认参数
+  function add( a,b ) {
+    // 有 bug
+    // var _b = b || 100;
+
+    // 没有bug，但麻烦
+    var _b = b === undefined ? 100 : b;
+    return a+_b;
+  }
+
+  // ES6 有默认值
+  // 参考：https://babeljs.cn，复制代码进去
+   function add( a, b=100 ){
+    return a+b;
+   }
+   console.log( add( 10 ) ); // 110
+   console.log( add( 10, 5 ) ); // 15
+   console.log( add( 10, 0 ) ); // 10
+   console.log( add( 10, undefined ) ); // 110
+
+  //-------------------------------------------------
+
+  // 二、剩余参数
+   function fn( a,b, ...r ){
+     // console.log( a,arguments[0] );
+     // console.log( a,arguments );
+      console.log( r );
+   }
+   fn(1,2,3,4,5);
+
+  //-------------------------------------------------
+
+  // 三、ES6 函数写法
+   function add(a,b){
+   	return a+b;
+   }
+
+   var add = (a,b)=>{return a+b};
+   var add = (a,b)=>a+b;
+
+   // 返回对象用()包裹
+   var add = (a,b)=>({miaov: 3});
+
+  // miaov充当的是语句的label标签
+   var add = (a,b)=>{
+   	miaov: for( var i = 0;i<10;i++ ){
+   		console.log( i );
+   		if( i==3 ){
+   		  // 中断掉for循环
+   			break miaov;
+   		}
+   	}
+   };
+   console.log(add(2, 3));
+
+   // 只有一个参数可以省略()，没有参数必须加()
+   var add = a=> a*100
+   console.log( add(2) );
+
+   var arr = [10,2,31,48,15,6];
+   var res = arr.filter( function(item){
+   	return item > 20;
+   } );
+
+   var res = arr.filter( item => item > 20 );
+   console.log( res );
+
+  //-------------------------------------------------
+
+  // 四、箭头函数的this指向取决于上下文环境
+  var fn = (...r)  =>  {
+    console.log( this ); // window
+    // 箭头函数没有arguments对象
+    // console.log( arguments );
+    console.log(r, '剩余参数');
+  }
+  fn(1,2,3);
+  // 箭头函数不能通过new来调用
+  // var obj = new fn();
+  fn.bind({a:1}); // bind 函数不能修改 箭头函数中的this指向
+  document.onclick = fn;
+
+  // 普通函数的this，取决于什么时候调用
+  // var fn = function(){
+  //    console.log( this ); // #document
+  // }
+  // document.onclick = fn;
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

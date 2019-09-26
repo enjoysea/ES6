@@ -2,12 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-<script>
+  <title>Title</title>
+  <script>
   // 一、ES5 创建数组
    var arr = new Array(10,20,30);
    console.log(arr);
@@ -18,6 +14,7 @@
    var arr = Array.of(10,20,30)
    var arr = Array.of(10) // 解决只有1项的问题
    console.log(arr) // [10]
+
 
   // 二、判断是否是数组
    console.log( Array.isArray( arr ) )  // 判断是否是数组
@@ -42,6 +39,8 @@
 
 
     var arr = [10, 20, 60, 30, 40, 50];
+
+
     // 三、找到数组中首个符合规则的元素
     var res = arr.find( function( item ){
       console.log(item)
@@ -57,7 +56,9 @@
     })
     console.log(res)
 
+  </script>
+</head>
+<body>
 
-</script>
 </body>
 </html>

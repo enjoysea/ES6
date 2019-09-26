@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+
+  // 一、ES5 对象写法
+  var a = 1;
+  var obj = {
+    a: a,
+    fn: function () {
+      console.log("fn")
+    }
+  };
+  console.log(obj);
+
+  // ES6 对象简写
+  var obj = {
+    a,
+    fn(){
+      console.log("fn执行了")
+    },
+    b: 100
+  };
+  console.log(obj);
+  obj.fn();
+  console.log('二、-----------------------');
+
+  // 二、键名是一个变量
+  var attrname = "width";
+  var attrObj = {};
+  var attrFn = "fn";
+  var obj = {
+    // 希望键名是一个变量
+    [attrname]: 100,
+    [attrObj]: "hello", // 会进行toString()的转换
+    [attrFn](){ // 字符串作为对象的方法
+      console.log("attrFn执行了");
+    }
+  };
+  console.log(obj);
+  obj.fn(); // 调用函数
+
+  console.log(1 == "1");
+  console.log(NaN === NaN);
+  console.log('三、-----------------------');
+
+
+  // 三、Object.is()判断是否相等
+  console.log(Object.is(1, 1));
+  console.log(Object.is(1, "1")); // 与===等同
+  console.log(Object.is(NaN, NaN), 'NaN'); // true
+  console.log(Object.is({}, {}));
+  var obj = {};
+  console.log(Object.is(obj, obj));
+  console.log('四、-----------------------');
+
+
+  // 四、默认参数
+  function move(obj) {
+    var defaultObj = {
+      ease: "linear",
+      duration: 1000
+    };
+    // 手动合并
+    var para = {
+      ease: obj.ease || defaultObj.ease,
+      duration: obj.duration || defaultObj.duration
+    };
+    // Object.assign 合并
+    var para = {};
+    Object.assign(para, defaultObj, obj);
+    console.log(para);
+  }
+  move({
+    duration: 2000
+  })
+  console.log('五、-----------------------');
+
+
+  // 五、Object.keys()返回数组
+  var obj = {
+    a: 1,
+    b: 2
+  };
+  console.log(Object.keys(obj));
+  console.log(Object.values(obj));
+  console.log(Object.entries(obj));
+  for (var attr of Object.values(obj)) {}
+  for (var [key, val] of Object.entries(obj)) {
+    console.log(key, val);
+  }
+
+  var obj = {
+    a: 1,
+    b: 2
+  };
+  // 对象不可通过 of 来进行遍历，in可以
+  //  for (var attr of obj) {
+  //    console.log(attr)
+  //  }
+
+  console.log(Object.keys(obj));  // ["a", "b"]
+  console.log(Object.values(obj));
+  console.log(Object.entries(obj), '返回一个二维数组'); // 返回一个二维数组
+
+  for (var attr of Object.keys(obj)) {
+    console.log(attr);
+  }
+
+  for (var attr of Object.values(obj)) {
+    console.log(attr);
+  }
+
+  for (var [key, val] of Object.entries(obj)) {
+    console.log(key, val);
+  }
+  console.log('六、-----------------------');
+
+
+  // 六、扩展运算符
+   var res = {
+   	...obj,
+   	c: 3
+   };
+   console.log( res );
+
+   var arr = [1,2,3,4];
+   console.log( arr );
+   console.log( 1,2,3,4 );
+   console.log( ...arr );
+
+   var arr = [1, 23, 4, 5];
+   console.log( Math.max( 1, 23, 4, 5 ) );
+   console.log( Math.max( ...arr ) );;
+   console.log('七、-----------------------');
+
+
+  // 七、数组去重
+  var arr = [1, 1, 12, 2, 3, 2, 1, 2];
+  // var res = new Set(arr);
+  // console.log(res);
+  var res = [...new Set(arr)];
+  console.log(res);
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>
