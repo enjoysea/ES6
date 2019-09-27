@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+			// 复制 是浅复制，只会复制第一层对象
+			// 合并，浅合并，只合并第一层
+
+      // 想深复制，就是遇到对象重新复制一份，可以用jQuery中的$.extend()，自己写递归的方式
+			let o = {
+				a: [1,2,3]
+			}
+			let o2 = {};
+			Object.assign(o2,o)
+
+			o2.a.push(1000);
+
+			console.log(o);
+			console.log(o2);
+
+			o2.a = o.a;
+			/*
+				{
+					width: 
+					height: 
+					okValue
+					cancelValue
+				}
+			*/
+			function Modal(options){
+				let defautls = {
+					width:100,
+					height:100,
+					okValue: '确定'
+				}	
+
+				Object.assign(defautls,options)
+
+				console.log(defautls);
+			}
+
+			Modal({
+				width: 1000
+			})
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

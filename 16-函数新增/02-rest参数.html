@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+			// rest 参数
+			// 语法:写在形参的位置 ...变量名
+			// 作用，是把剩余的实参放在数组中
+			function fn(...m){
+				console.log(arguments);	 // 实参的集合 类数组
+				console.log(m); // 真正的数组
+			}
+
+			fn(1,2,3,4,5)
+
+      // 箭头函数是没有arguments的
+			let f = (a,...miaov) => {
+				console.log(miaov); // 真正的数组
+			}
+
+			f(1,2,3,4)
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

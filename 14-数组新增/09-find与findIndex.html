@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+
+    var arr = [10, 20, 60, 30, 40, 50];
+
+    // find 找到数组中首个符合规则的元素
+    // 找到符合规则的元素，就不再循环
+    var res = arr.find(function (item) {
+      console.log(item)
+      return item > 50;
+    });
+    console.log(res); // 60
+
+    // findIndex 找到数组中首个符合规则的元素下标
+    // 找到符合规则的元素，就不再循环
+    var res = arr.findIndex(function (item) {
+      console.log(item);
+      return item > 50;
+    })
+    console.log(res); // 2
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

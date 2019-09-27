@@ -17,13 +17,13 @@
 
   // ES6 有默认值
   // 参考：https://babeljs.cn，复制代码进去
-   function add( a, b=100 ){
+   function addFn( a, b=100 ){
     return a+b;
    }
-   console.log( add( 10 ) ); // 110
-   console.log( add( 10, 5 ) ); // 15
-   console.log( add( 10, 0 ) ); // 10
-   console.log( add( 10, undefined ) ); // 110
+   console.log( addFn( 10 ), '#' ); // 110
+   console.log( addFn( 10, 5 ) ); // 15
+   console.log( addFn( 10, 0 ) ); // 10
+   console.log( addFn( 10, undefined ) ); // 110
 
   //-------------------------------------------------
 
@@ -75,6 +75,7 @@
   //-------------------------------------------------
 
   // 四、箭头函数的this指向取决于上下文环境
+  // 箭头函数体内的this值，绑定的是定义时所在的作用域的this
   var fn = (...r)  =>  {
     console.log( this ); // window
     // 箭头函数没有arguments对象
@@ -92,6 +93,14 @@
   //    console.log( this ); // #document
   // }
   // document.onclick = fn;
+
+  let o = {
+    f: () => {
+      console.log(this); // window
+    }
+  };
+
+  o.f();
 
   </script>
 </head>

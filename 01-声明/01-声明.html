@@ -5,6 +5,17 @@
   <title>Title</title>
   <script>
 
+    // 使用var
+    // 1. 变量提升
+    // 2. 同一个作用域下会重复声明多个相同名的变量
+    // 3. 挂载window上
+
+    // 使用let
+    // 1. 不会 变量提升
+    // 2. 不会 同一个作用域下会重复声明多个相同名的变量
+    // 3. 不会 挂载window上
+
+
     // 一、块级作用域
     {
       let a = 1
@@ -13,9 +24,15 @@
 
 
     // 二、常量
+    // 简单（原始）数据类型 引用（对象）数据类型
     const o = {}
     o.name = 'Mike'
     console.log(o)
+
+    const arr = [1,2,3];
+    console.log(arr);
+    arr[0] = 'm';
+    console.log(arr);
 
   </script>
 </head>

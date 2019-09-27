@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+
+			var numsArr = [1,2,3,4,5,6,7,8];
+
+			// 小于5的数，放在数组中
+
+      // 传统做法
+			var empty = []
+			for( var i = 0; i < numsArr.length; i++ ){
+				if(numsArr[i] < 5){
+					empty.push(numsArr[i])
+				}
+			}
+			console.log(empty);
+
+
+			// filter会根据一个条件成立与否，来决定是否把操作的这个数组中的某一项放在新数组中
+			// 条件作为回调函数的返回值
+			// true 这一项放在新数组中，false，忽略
+			let filetrReturn = numsArr.filter(function (item, index){
+				console.log(item,index);
+				return item < 5;	
+			})
+			console.log(filetrReturn);
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    window.onload = function () {
+      var aLi = document.getElementsByTagName('li');
+//      for (var i = 0; i < aLi.length; i++) {
+//        aLi[i].onclick = function () { // 点击时for循环已结束
+//          alert(i); // 3
+//        };
+//      }
+
+      // 闭包方法一
+//      for (var i = 0; i < aLi.length; i++) {
+//        (function(i){
+//          aLi[i].onclick = function () {
+//            alert(i);
+//          };
+//        })(i);
+//      }
+
+
+      // 闭包方法二
+      // 利用return返回值
+//      for (var i = 0; i < aLi.length; i++) {
+//        aLi[i].onclick = (function (i) {
+//          return function () {
+//            alert(i);
+//          }
+//        })(i);
+//      }
+
+      // 闭包方法三
+//      for (var i = 0; i < aLi.length; i++) {
+//        fn(i);
+//      }
+//
+//      function fn(i) {
+//        aLi[i].onclick = function () {
+//          alert(i);
+//        };
+//      }
+
+      // let 方法四
+      for (let i = 0; i < aLi.length; i++) {
+        aLi[i].onclick = function () {
+          alert(i);
+        };
+      }
+
+    };
+  </script>
+</head>
+<body>
+<ul>
+  <li>11111111111</li>
+  <li>11111111111</li>
+  <li>11111111111</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    // 以后在学到Vue、Vuex、React，每一次的状态更新都会生成一个新的对象，不能用以前的对象
+    // 生成新对象的开销是很小的
+    // 每一次改变一个属性，都会重新生成新对象
+    let user = {
+      name:'leo',
+      age: 30,
+      height: 180
+    }
+
+    // 把对象中的height改成170，生成新的对象
+    // let newUser = {...user, height: 170};
+
+    let newUser2 = {...user, age: 50};
+
+    console.log(newUser2);
+    //console.log(newUser2);
+  </script>
+</head>
+<body>
+
+</body>
+</html>

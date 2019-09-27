@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+
+			let arr = [
+				{
+					name:'leo1'
+				},
+				{
+					name:'leo2'
+				}
+			];
+
+			// 生成2个<li>
+
+			// 传统做法
+			let str = '';
+			for( var i = 0; i < arr.length; i++ ){
+				str += `<li>${arr[i].name}</li>`
+			}
+			console.log(str);
+
+      // 使用map的方法
+			let arrStr = arr.map(function (item){
+				return `<li>${item.name}</li>`	
+			}).join('');
+			console.log(arrStr);
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>
