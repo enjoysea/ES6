@@ -1,0 +1,6 @@
+﻿
+（1）export语法参考：
+	https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export
+
+（2）import语法参考：
+	https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
