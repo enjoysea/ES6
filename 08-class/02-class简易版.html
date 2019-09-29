@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    // ES6 类的声明与使用
+    class People {
+      constructor(name) {
+        this.name = name
+      }
+
+      sing() {
+        // strict 下是 this → undefined
+        console.log(this);
+        console.log(`${this.name} 唱歌了`);
+      }
+    }
+
+
+    class IronMan extends People {
+      constructor(name, eyesNum) {
+        super(name);
+        this.eyesNum = eyesNum;
+      }
+    }
+
+    let ir = new IronMan('Tony', 1000);
+    console.log(ir);
+    ir.sing();
+  </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    let o = {
+      name: '对象 o',
+      fn: function () {
+        let innerFuncThis = function () {
+          return this;
+        }
+        console.log(this);// 一个函数里的this，谁调用这个函数，this就指向谁，this → o
+
+        //如果将此代码放在index.js中，this就undefined
+        //如果放在控制台去执行，也是undefined
+        console.log(innerFuncThis()); // 因为函数前面没有调用，this → window
+      }
+    };
+    o.fn();
+  </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    // spread, rest
+    // 总结：
+        // 展开：将一个东西展开到另外一个东西里面
+        // 剩余：没有取完的东西就是剩余,如解构一个对象，只解构了一个，其余的就是剩余
+
+
+
+
+    // 一、扩展：spread
+    // spread ... 展开一个东西
+    // 在数组中展开
+    // let arr = [1, 2, 3];
+    // console.log([...arr，'a', 'b']);
+    // console.log(['a', 'b', ...arr]);
+    //console.log(['a', ...arr, 'b', ...arr]);
+
+
+    // 在对象中展开，同名属性会覆盖
+    // let obj = {
+    //   a: 1,
+    //   b: 2
+    // };
+    // console.log({
+    //   ...obj,
+    //   c: 'c',
+    //   a: 'newA',
+    //   ...obj,
+    // });
+
+
+    // 在函数参数中展开
+    // let rtnArr = (a, b, c)=>console.log(a, b, c);
+    // rtnArr(...[1,2,3]); // 第一个元素对应第一个参数，第二个元素对应第二个参数，……
+
+
+    // 二、剩余：rest
+    // 1、在对象里面使用rest
+    // let names = {
+    //   p1: 'Joe',
+    //   p2: 'Hurley',
+    //   p3: 'Moli'
+    // }
+
+    // 剩余参数，必须写在后面
+    // 解构
+    // let {p1, ...rest} = names;
+    // console.log(p1);
+    // console.log(rest); // {p2: "Hurley", p3: "Moli"}
+
+
+    // 2、在数组里面使用rest
+    // let arr2 = [1,2,3,4];
+    // let [a1, a2, ...restElt] = arr2
+    // console.log(a1, a2)
+    // console.log(restElt)
+
+
+    // 3、在函数里面使用rest
+    // 剩余的所有参数都会放在数组中
+    // let fn2 = (a, b, ...rest) => console.log(a, b, rest);
+    // fn2(1) //1 undefined []
+    // fn2(1, 2) //1 2 []
+    // fn2(1, 2, 'a', 'b') //1 2 ['a','b']
+
+
+    // 在函数里面使用rest
+    // let fn2 = (a, b, ...rest) => console.log(a, b, ...rest);
+    // fn2(1) //1 undefined
+    // fn2(1, 2) //1 2
+    // fn2(1, 2, 'a', 'b') //1 2 "a" "b"
+
+
+    // 在函数里面使用rest
+    // let fn2 = (a, b, ...rest) => {
+    //   return [...rest]
+    // };
+    // console.log(fn2(1)); //[]
+    // console.log(fn2(1, 2)); //[]
+    // console.log(fn2(1, 2, 'a', 'b')); //['a', 'b']
+
+
+    // 箭头函数没有arguments参数
+    // let fn2 = (arguments) => {
+    //   return arguments
+    // };
+
+    // 解决方法
+    // rest就是一个数组，多少个参数都会放在数组里
+    // let fn2 = (...rest) => {
+    //   return console.log(rest);
+    // };
+    //
+    // fn2(1); //[1]
+    // fn2(1, 2); //[1,2]
+    // fn2(1, 2, 'a', 'b'); //[1, 2, 'a', 'b']
+
+
+    let fn2 = (...rest) => {
+      let fn = function (a, b, c) {
+        console.log(a, b, c);
+      }
+      fn(...rest);
+    };
+
+
+    fn2(1); //1, undefined, undefined
+    fn2(1, 2); //1, 2, undefined
+    fn2(1, 2, 'a', 'b'); //1, 2, 'a'
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

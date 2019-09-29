@@ -1,0 +1,5 @@
+﻿
+ECMAScript 6 入门
+作者：阮一峰
+
+http://es6.ruanyifeng.com/

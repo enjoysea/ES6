@@ -1,0 +1,9 @@
+// 导出
+module.exports = function aPlusB(a, b){
+	return a + b;
+}
+
+
+// 导入
+const ac = require('./module/2-commonJS');
+console.log(ac(4,5));
